@@ -48,13 +48,14 @@ const AuthForm = ({ type }: { type: string }) => {
         setIsLoading(true);
         try {
             // Sign up with app write & create a plaid token
-            console.log(values);
             if ( type === 'sign-up'){
                 const newUser = await signUp(values);
+                console.log(newUser);
                 setUser(newUser);
             }
 
             if ( type === 'sign-in'){
+                console.log(values);
                 const response = await signIn({
                     email: values.email,
                     password: values.password
